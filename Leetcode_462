@@ -1,0 +1,27 @@
+Minimum Moves to Equal Array Elements II
+
+Ex-1:
+Input: nums = [1,2,3]
+Output: 2
+Explanation:
+Only two moves are needed (remember each move increments or decrements one element):
+[1,2,3]  =>  [2,2,3]  =>  [2,2,2]
+
+Code:
+class Solution {
+public:
+    int minMoves2(vector<int>& nums) {
+        int n = nums.size();
+        sort(nums.begin(),nums.end());
+        int s = 0;
+        int e = n-1;
+        int ans = 0;
+        while(e>=s){
+            ans = ans + (nums[e]-nums[s]);
+            s++;
+            e--;
+            cout<<"Ans: "<<ans<<endl;
+        }
+        return ans;
+    }
+};
